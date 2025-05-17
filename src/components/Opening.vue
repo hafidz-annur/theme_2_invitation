@@ -51,7 +51,7 @@ const saveCalendar = () => {
         </div>
 
         <div
-          class="absolute bottom-40 left-0 w-full flex justify-center animate__animated animate__zoomIn animate__delay-2s"
+          class="absolute bottom-[7rem] left-0 w-full flex justify-center animate__animated animate__zoomIn animate__delay-2s"
         >
           <div class="w-full text-center">
             <h1 class="text-3xl font-bold">

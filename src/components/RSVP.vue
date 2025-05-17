@@ -138,7 +138,7 @@ onMounted(() => {
                   {{ item.nama }}
                   <v-icon
                     icon="mdi-check-circle"
-                    color="#02750f"
+                    color="#44c930"
                     class="ms-2"
                     v-if="item.kehadiran == 'Hadir'"
                   />
