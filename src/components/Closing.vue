@@ -8,7 +8,7 @@ const props = defineProps({ data:Object, caption: Object });
       class="absolute top-0 left-0 w-full h-full flex items-center bg-gradient-to-t from-orange-100/40 to-gray-800"
     >
       <div
-        class="text-center animate__animated animate__zoomIn animate__delay-1s mb-10"
+        class="text-center animate__animated animate__zoomIn animate__delay-1s mb-10 px-5"
       >
         <p class="text-[14px]" v-html="props.caption?.islam?.penutup[1]"></p>
       </div>

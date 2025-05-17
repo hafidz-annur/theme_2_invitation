@@ -4,7 +4,7 @@ import moment from "moment";
 const props = defineProps({ data: Object });
 </script>
 <template>
-  <v-container height="75dvh" class="relative p-0 overflow-hidden">
+  <v-container height="75vh" class="relative p-0 overflow-hidden">
     <img :src="props.data?.foto_opening" alt="Amantrana" class="w-full h-full object-cover" />
     <div class="absolute top-0 left-0 w-full h-full bg-black/70 py-10">
       <div class="flex justify-center items-center px-5">

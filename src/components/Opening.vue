@@ -36,7 +36,7 @@ const saveCalendar = () => {
 </script>
 <template>
   <v-container height="100dvh" class="relative overflow-hidden p-0">
-    <v-img :src="props.data?.foto_opening" height="100dvh" cover></v-img>
+  <img :src="props.data?.foto_opening" alt="Amantrana" class="h-full object-cover">
     <div
       class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-orange-100/40 to-gray-800"
     >
@@ -51,7 +51,7 @@ const saveCalendar = () => {
         </div>
 
         <div
-          class="absolute bottom-20 left-0 w-full flex justify-center animate__animated animate__zoomIn animate__delay-2s"
+          class="absolute bottom-40 left-0 w-full flex justify-center animate__animated animate__zoomIn animate__delay-2s"
         >
           <div class="w-full text-center">
             <h1 class="text-3xl font-bold">

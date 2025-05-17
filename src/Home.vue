@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount, onMounted, onUnmounted } from "vue";
 
 import Cover from "./components/Cover.vue";
 import Opening from "./components/Opening.vue";
@@ -23,6 +23,10 @@ const loading = ref(true);
 const progress = ref(0);
 const checkMenu = (values) => {
   menu.value = values;
+  const element = document.getElementById(menu.value);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 const data = ref(biodata);
@@ -32,17 +36,59 @@ const captions = ref(caption);
 onBeforeMount(async () => {
   // Simulasi progress naik perlahan (0% ke 100%)
   while (progress.value < 100) {
-    await new Promise((resolve) => setTimeout(resolve, 50)); // tiap 50ms
+    await new Promise((resolve) => setTimeout(resolve, 100)); // tiap 50ms
     progress.value += 10;
   }
 
   // Setelah progress penuh, matikan loading
   loading.value = false;
 });
+
+const clientHeight = ref(0);
+const sectionIds = [
+  "Pembukaan",
+  "Mempelai",
+  "Quotes",
+  "Acara",
+  "Lokasi",
+  "Galeri",
+  "Hadiah",
+  "RSVP",
+  "Penutupan",
+];
+
+onMounted(() => {
+  const handleScroll = () => {
+    clientHeight.value = document.documentElement.clientHeight;
+
+    // Loop semua section dan cari yang sedang terlihat
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const visible = rect.top >= 0 && rect.top <= clientHeight.value * 0.4; // 40% atas viewport
+
+        if (visible) {
+          menu.value = id;
+          break; // berhenti di yang pertama terlihat
+        }
+      }
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  // Jalankan sekali untuk inisialisasi
+  handleScroll();
+
+  // Bersihkan listener saat unmounted (opsional tapi disarankan)
+  onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+  });
+});
 </script>
 
 <template>
-  <v-app class="bg-gradient-to-r from-orange-200 to-orange-300">
+  <v-app class="bg-gradient-to-r from-[#D9A371] to-[#a47950]">
     <div
       class="flex flex-col justify-center items-center w-full h-[100dvh]"
       v-if="loading"
@@ -54,9 +100,9 @@ onBeforeMount(async () => {
       </div>
 
       <div class="w-[200px] mt-2">
-        <v-progress-linear v-model="progress" color="info" height="20" rounded>
+        <v-progress-linear v-model="progress" color="white" height="20" rounded>
           <template v-slot:default="{ value }">
-            <strong class="text-gray-200 text-[10px]"
+            <strong class="text-gray-700 text-[10px]"
               >{{ Math.ceil(value) }}%</strong
             >
           </template>
@@ -80,18 +126,18 @@ onBeforeMount(async () => {
               @selected="checkMenu"
             />
             <div v-else>
-              <Opening :data="data" :caption="captions" />
-              <Mempelai :data="data" />
-              <Quotes :quote="quotes" />
-              <Acara :data="data" />
-              <Lokasi :data="data" />
-              <Galeri :data="data" />
-              <Hadiah :data="data" />
-              <RSVP />
-              <Closing :data="data" :caption="captions" />
+              <Opening :data="data" :caption="captions" id="Pembukaan" />
+              <Mempelai :data="data" id="Mempelai" />
+              <Quotes :quote="quotes" id="Quotes" />
+              <Acara :data="data" id="Acara" />
+              <Lokasi :data="data" id="Lokasi" />
+              <Galeri :data="data" id="Galeri" />
+              <Hadiah :data="data" id="Hadiah" />
+              <RSVP id="RSVP" />
+              <Closing :data="data" :caption="captions" id="Penutupan" />
+
+              <Menus :data="data" :active="menu" @selected="checkMenu" />
             </div>
-            <!-- 
-            <Menus v-if="menu" :data="data" @selected="checkMenu" /> -->
           </div>
         </v-col>
       </v-row>

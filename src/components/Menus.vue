@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 
-const props = defineProps({ data: String });
+const props = defineProps({ data: String, active: String });
 const emit = defineEmits(["selected"]);
 
 let intervalId;
@@ -65,7 +65,7 @@ const autoplayMenu = () => {
       if (index >= menus_count) {
         autoplay_menu.value = false;
         selected.value = "Pembukaan";
-        clearInterval(intervalId)
+        clearInterval(intervalId);
         emit("selected", selected.value);
         return;
       }
@@ -74,7 +74,7 @@ const autoplayMenu = () => {
       selected.value = element;
       emit("selected", selected.value);
       index++;
-    }, 8000);
+    }, 5000);
   } else {
     clearInterval(intervalId);
   }
@@ -98,6 +98,12 @@ const playMusic = () => {
   }
 };
 
+watch(() => {
+  if (props.active) {
+    selected.value = props.active;
+  }
+});
+
 onMounted(() => {
   audio.value = new Audio(props.data?.musik);
   autoplay_menu.value = true;
@@ -107,10 +113,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="absolute bottom-[80px] right-7 z-[9999] flex flex-col">
+  <div class="fixed bottom-[60px] right-7 z-[9999] flex flex-col">
     <v-btn
       size="x-small"
-      color="#C1A162"
+      color="primary"
       :icon="!autoplay_menu ? 'mdi-play-outline' : 'mdi-pause'"
       @click="
         autoplay_menu = !autoplay_menu;
@@ -120,22 +126,19 @@ onMounted(() => {
     />
     <v-btn
       size="x-small"
-      color="#C1A162"
+      color="primary"
       :icon="!autoplay_music ? 'mdi-volume-off' : 'mdi-volume-high'"
       @click="playMusic()"
     />
   </div>
-  <div class="absolute bottom-1 left-0 z-[9999] w-full px-5">
+  <div class="fixed bottom-0 left-0 z-[9999] w-full px-5">
     <v-tabs
       v-model="selected"
       align-tabs="center"
-      bg-color="#C1A162"
-      color="secondary"
-      slider-color="secondary"
       height="50"
       stacked
       center-active
-      class="rounded-lg"
+      class="bg-white/80 rounded-t-xl"
       @update:model-value="selectedMenu()"
     >
       <v-tab
@@ -143,7 +146,7 @@ onMounted(() => {
         v-for="item in menus"
         :value="item.title"
         class="p-0"
-        :class="item.title == selected ? 'bg-[#8c7444]' : null"
+        :class="item.title == selected ? 'bg-primary' : null"
       >
         <v-icon :icon="item.icon" size="20" />
         <p class="text-[10px] text-white">

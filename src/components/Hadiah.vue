@@ -34,7 +34,7 @@ const copyText = (text) => {
       </div>
       <v-card
         color="white"
-        class="animate__animated animate__zoomIn animate__delay-2s"
+        class="animate__animated animate__zoomIn animate__delay-2s pb-10"
       >
         <v-tabs v-model="tab" bg-color="primary" align-tabs="center">
           <v-tab
@@ -60,7 +60,7 @@ const copyText = (text) => {
         <v-card-text>
           <v-tabs-window v-model="tab">
             <v-tabs-window-item value="one">
-              <div class="h-[350px] overflow-auto">
+              <div class="md:h-[350px] h-[280px] overflow-auto">
                 <div
                   v-for="item in props.data?.hadiah?.bank"
                   :key="item"
@@ -99,7 +99,7 @@ const copyText = (text) => {
             </v-tabs-window-item>
 
             <v-tabs-window-item value="two">
-              <div class="h-[350px] overflow-auto">
+              <div class="md:h-[350px] h-[280px] overflow-auto">
                 <div
                   v-for="item in props.data?.hadiah?.ewallet"
                   :key="item"

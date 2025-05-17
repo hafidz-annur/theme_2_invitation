@@ -55,83 +55,86 @@ onMounted(() => {
 });
 </script>
 <template>
-  <v-dialog v-model="dialog" width="auto">
-    <v-card max-width="400" prepend-icon="mdi-update" title="Kirim Pesan">
-      <v-card-text>
-        <v-form fast-fail @submit.prevent="submit" ref="formData">
-          <v-text-field
-            v-model="form.nama"
-            density="compact"
-            label="Nama Anda"
-            placeholder="Masukan nama anda"
-            variant="outlined"
-            :rules="[(value) => !!value || 'Anda wajib memasukan nama.']"
-            class="mb-3"
-          />
-          <v-textarea
-            v-model="form.pesan"
-            density="compact"
-            label="Pesan"
-            placeholder="Masukan pesan anda"
-            variant="outlined"
-            :rules="[(value) => !!value || 'Anda wajib memberikan pesan.']"
-            class="mb-3"
-          />
-          <v-radio-group
-            inline
-            v-model="form.kehadiran"
-            :rules="[
-              (value) => !!value || 'Anda wajib menginformasikan kehadiran.',
-            ]"
-            class="mb-3"
-          >
-            <v-radio label="Hadir" value="Hadir"></v-radio>
-            <v-radio
-              label="Belum Bisa Hadir"
-              value="Belum Bisa Hadir"
-            ></v-radio>
-            <v-radio label="Belum Tahu" value="Belum Tahu"></v-radio>
-          </v-radio-group>
-          <div class="text-center mb-3">
-            <v-btn type="submit" prepend-icon="mdi-send" color="info"
-              >Kirim Pesan</v-btn
-            >
-          </div>
-        </v-form>
-      </v-card-text>
-    </v-card>
-  </v-dialog>
   <v-container class="relative p-0">
-    <div
-      class="bg-gray-700/80 p-5 animate__animated animate__fadeInUp"
-    >
+    <v-dialog v-model="dialog" width="auto">
+      <v-card max-width="400" prepend-icon="mdi-update" title="Kirim Pesan">
+        <v-card-text>
+          <v-form fast-fail @submit.prevent="submit" ref="formData">
+            <v-text-field
+              v-model="form.nama"
+              density="compact"
+              label="Nama Anda"
+              placeholder="Masukan nama anda"
+              variant="outlined"
+              :rules="[(value) => !!value || 'Anda wajib memasukan nama.']"
+              class="mb-3"
+            />
+            <v-textarea
+              v-model="form.pesan"
+              density="compact"
+              label="Pesan"
+              placeholder="Masukan pesan anda"
+              variant="outlined"
+              :rules="[(value) => !!value || 'Anda wajib memberikan pesan.']"
+              class="mb-3"
+            />
+            <v-radio-group
+              inline
+              v-model="form.kehadiran"
+              :rules="[
+                (value) => !!value || 'Anda wajib menginformasikan kehadiran.',
+              ]"
+              class="mb-3"
+            >
+              <v-radio label="Hadir" value="Hadir"></v-radio>
+              <v-radio
+                label="Belum Bisa Hadir"
+                value="Belum Bisa Hadir"
+              ></v-radio>
+              <v-radio label="Belum Tahu" value="Belum Tahu"></v-radio>
+            </v-radio-group>
+            <div class="text-center mb-3">
+              <v-btn type="submit" prepend-icon="mdi-send" color="info"
+                >Kirim Pesan</v-btn
+              >
+            </div>
+          </v-form>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <div class="bg-gray-700/80 p-5 animate__animated animate__fadeInUp">
       <div class="h-full overflow-hidden py-10">
         <h3
           class="text-2xl font-bold text-center mb-3 animate__animated animate__zoomIn animate__delay-1s"
         >
           Kirim Ucapan
         </h3>
-        <v-btn
-          prepend-icon="mdi-send"
-          block
-          class="mb-3 mt-3 animate__animated animate__zoomIn animate__delay-3s"
-          @click="dialog = true"
-          color="primary"
-          size="small"
-        >
-          Kirim Pesan
-        </v-btn>
+        <p class="text-center">
+          Sapa dan kirim ucapan beserta doa yang terbaik untuk mereka yang
+          berbahagia.
+        </p>
+        <div class="flex justify-center">
+          <v-btn
+            prepend-icon="mdi-send"
+            class="mb-3 mt-3 animate__animated animate__zoomIn animate__delay-3s"
+            @click="dialog = true"
+            color="light"
+            size="small"
+          >
+            Kirim Pesan
+          </v-btn>
+        </div>
         <div
-          class="h-[300px] overflow-auto pb-[150px] animate__animated animate__zoomIn animate__delay-4s"
+          class="h-[300px] rounded-lg shadow-lg overflow-auto pb-[150px] animate__animated animate__zoomIn animate__delay-4s"
         >
           <div
-            class="bg-primary rounded-lg px-2 py-2 mb-2 shadow"
+            class="bg-white/10 rounded px-2 py-4 mb-2 shadow"
             v-for="(item, index) in messages.pesan"
             :key="item"
           >
             <div class="flex items-center justify-between">
               <div>
-                <p class="mb-0 flex items-center">
+                <p class="mb-0 text-primary flex items-center">
                   {{ item.nama }}
                   <v-icon
                     icon="mdi-check-circle"
@@ -155,7 +158,7 @@ onMounted(() => {
                 <small class="text-gray-200">{{ item.created_at }}</small>
               </div>
             </div>
-            <p class="border-t-2  pt-2 mt-2">
+            <p class="border-t-2 pt-2 mt-2">
               {{ item.pesan }}
             </p>
           </div>
