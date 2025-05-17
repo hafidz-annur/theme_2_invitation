@@ -16,13 +16,18 @@ const copyText = (text) => {
 };
 </script>
 <template>
-  <v-container height="100dvh" class="relative p-5">
-    <div class="bg-white/90 h-[87dvh] rounded-lg p-5">
+  <v-container class="relative p-0">
+    <img
+      :src="props.data?.foto_opening"
+      alt="Amantrana"
+      class="w-full md:h-full h-[80dvh] object-cover"
+    />
+    <div class="absolute top-0 left-0 bg-white/70 h-full py-10 px-10">
       <div
         class="text-center mb-3 animate__animated animate__zoomIn animate__delay-1s"
       >
-        <h4 class="mb-1 text-2xl font-bold">Terima Kasih</h4>
-        <p>
+        <h4 class="mb-1 text-2xl font-bold text-gray-700">Terima Kasih</h4>
+        <p class="text-gray-800">
           Terima kasih telah menambah semangat kegembiraan pernikahaan kam
           dengan kehadiran dan hadiah indah Anda.
         </p>
@@ -31,7 +36,7 @@ const copyText = (text) => {
         color="white"
         class="animate__animated animate__zoomIn animate__delay-2s"
       >
-        <v-tabs v-model="tab" bg-color="#C1A162" align-tabs="center">
+        <v-tabs v-model="tab" bg-color="primary" align-tabs="center">
           <v-tab
             value="one"
             class="text-[12px]"
@@ -55,7 +60,7 @@ const copyText = (text) => {
         <v-card-text>
           <v-tabs-window v-model="tab">
             <v-tabs-window-item value="one">
-              <div class="h-[55dvh] overflow-auto">
+              <div class="h-[350px] overflow-auto">
                 <div
                   v-for="item in props.data?.hadiah?.bank"
                   :key="item"
@@ -63,7 +68,7 @@ const copyText = (text) => {
                 >
                   <div class="flex justify-between items-center">
                     <div class="">
-                      <p class="text-center my-1">
+                      <p class="text-center text-gray-800 my-1">
                         {{ item.atas_nama }}
                       </p>
                       <div class="flex items-center text-gray-400 mt-1">
@@ -80,7 +85,7 @@ const copyText = (text) => {
                         class="mb-2"
                       />
                       <v-btn
-                        color="#C1A162"
+                        color="primary"
                         prepend-icon="mdi-content-copy"
                         @click="copyText(item.norek)"
                         size="small"
@@ -94,7 +99,7 @@ const copyText = (text) => {
             </v-tabs-window-item>
 
             <v-tabs-window-item value="two">
-              <div class="h-[55dvh] overflow-auto">
+              <div class="h-[350px] overflow-auto">
                 <div
                   v-for="item in props.data?.hadiah?.ewallet"
                   :key="item"
@@ -102,7 +107,7 @@ const copyText = (text) => {
                 >
                   <div class="flex justify-between items-center">
                     <div class="">
-                      <p class="text-center my-1">
+                      <p class="text-center text-gray-800 my-1">
                         {{ item.atas_nama }}
                       </p>
                       <div class="flex items-center text-gray-400 mt-1">
@@ -119,7 +124,7 @@ const copyText = (text) => {
                         class="mb-2"
                       />
                       <v-btn
-                        color="#C1A162"
+                        color="primary"
                         prepend-icon="mdi-content-copy"
                         @click="copyText(item.norek)"
                         size="small"
@@ -136,7 +141,7 @@ const copyText = (text) => {
               <div class="text-center">
                 <v-icon icon="mdi-gift-outline" size="40" class="mb-2" />
                 <h3 class="font-bold">Alamat</h3>
-                <p class="mt-3">
+                <p class="mt-3 text-gray-800">
                   {{ props.data?.hadiah?.alamat }}
                 </p>
               </div>

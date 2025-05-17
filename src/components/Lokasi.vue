@@ -2,28 +2,27 @@
 const props = defineProps({ data: Object });
 </script>
 <template>
-  <v-container height="100dvh" class="relative p-5">
+  <v-container class="relative p-0 overflow-hidden">
     <div
-      class="flex items-center justify-center h-[87dvh] bg-white/80 rounded-lg"
+      class="flex items-center justify-center bg-white/80 pb-10"
     >
       <div
-        class="text-center animate__animated animate__zoomIn animate__delay-1s"
+        class="text-center w-[100%] animate__animated animate__zoomIn animate__delay-1s"
       >
-        <p class="text-xl mb-5">{{ props.data?.lokasi?.tempat }}</p>
         <div
           v-html="props.data?.lokasi?.maps_embed"
-          class="h-[300px] rounded-lg relative overflow-hidden"
+          class="h-[300px] relative overflow-hidden"
         ></div>
         <v-btn
           :href="props.data?.lokasi?.maps_link"
           target="_blank"
           class="mt-5"
-          append-icon="mdi-bicycle"
-          prepend-icon="mdi-bicycle"
-          color="#C1A162"
+          append-icon="mdi-google-maps"
+          prepend-icon="mdi-google-maps"
+          color="primary"
           size="small"
         >
-          Kunjungi Sekarang
+          Lihat Lokasi
         </v-btn>
       </div>
     </div>

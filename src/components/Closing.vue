@@ -1,17 +1,20 @@
 <script setup>
-const props = defineProps({ caption: Object });
+const props = defineProps({ data:Object, caption: Object });
 </script>
 <template>
-  <v-container height="100dvh" class="relative p-5">
+  <v-container height="100dvh" class="relative p-0">
+    <v-img :src="props.data?.foto_opening" height="100dvh" cover></v-img>
     <div
-      class="flex items-center justify-center bg-white/80 h-[87dvh] rounded-lg p-5 relative overflow-hidden"
+      class="absolute top-0 left-0 w-full h-full flex items-center bg-gradient-to-t from-orange-100/40 to-gray-800"
     >
       <div
         class="text-center animate__animated animate__zoomIn animate__delay-1s mb-10"
       >
-        <p class="text-[14px]" v-html="props.caption?.islam?.penutup[2]"></p>
+        <p class="text-[14px]" v-html="props.caption?.islam?.penutup[1]"></p>
       </div>
-      <div class="absolute bottom-[5vh] left-0 w-full animate__animated animate__fadeInUp animate__delay-2s">
+      <div
+        class="absolute bottom-[15vh] left-0 w-full animate__animated animate__fadeInUp animate__delay-2s"
+      >
         <div class="flex justify-center mt-[20vh]">
           <img src="/public/logo.png" alt="Āmantrana" class="w-20" />
         </div>

@@ -82,34 +82,15 @@ onBeforeMount(async () => {
             <div v-else>
               <Opening :data="data" :caption="captions" />
               <Mempelai :data="data" />
-              <Quotes
-                :quote="quotes"
-                class="animate__animated animate__fadeInUp"
-              />
-              <Acara :data="data" class="animate__animated animate__fadeInUp" />
+              <Quotes :quote="quotes" />
+              <Acara :data="data" />
+              <Lokasi :data="data" />
+              <Galeri :data="data" />
+              <Hadiah :data="data" />
+              <RSVP />
+              <Closing :data="data" :caption="captions" />
             </div>
             <!-- 
-            <Lokasi
-              v-if="menu == 'Lokasi'"
-              :data="data"
-              class="animate__animated animate__fadeInUp"
-            />
-            <Galeri
-              v-if="menu == 'Galeri'"
-              :data="data"
-              class="animate__animated animate__fadeInUp"
-            />
-            <Hadiah
-              v-if="menu == 'Hadiah'"
-              :data="data"
-              class="animate__animated animate__fadeInUp"
-            />
-            <RSVP v-if="menu == 'RSVP'" />
-            <Closing
-              v-if="menu == 'Penutupan'"
-              :caption="captions"
-              class="animate__animated animate__fadeInUp"
-            />
             <Menus v-if="menu" :data="data" @selected="checkMenu" /> -->
           </div>
         </v-col>

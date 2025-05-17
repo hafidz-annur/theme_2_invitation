@@ -101,47 +101,31 @@ onMounted(() => {
       </v-card-text>
     </v-card>
   </v-dialog>
-  <v-container height="100dvh" class="relative p-5">
+  <v-container class="relative p-0">
     <div
-      class="bg-white/80 h-[87dvh] rounded-lg p-5 animate__animated animate__fadeInUp"
+      class="bg-gray-700/80 p-5 animate__animated animate__fadeInUp"
     >
-      <div class="h-full overflow-hidden">
+      <div class="h-full overflow-hidden py-10">
         <h3
           class="text-2xl font-bold text-center mb-3 animate__animated animate__zoomIn animate__delay-1s"
         >
           Kirim Ucapan
         </h3>
-        <vue3-flip-countdown
-          countdownSize="1.4rem"
-          labelSize="1rem"
-          mainFlipBackgroundColor="#C3A568"
-          secondFlipBackgroundColor="#C3A568"
-          mainColor="#fff"
-          secondFlipColor="#fff"
-          :labels="{
-            days: 'Hari',
-            hours: 'Jam',
-            minutes: 'Menit',
-            seconds: 'Detik',
-          }"
-          :deadline="deadline"
-          class="animate__animated animate__zoomIn animate__delay-2s"
-        />
         <v-btn
           prepend-icon="mdi-send"
           block
           class="mb-3 mt-3 animate__animated animate__zoomIn animate__delay-3s"
           @click="dialog = true"
-          color="#C1A162"
+          color="primary"
           size="small"
         >
           Kirim Pesan
         </v-btn>
         <div
-          class="h-full overflow-auto pb-[150px] animate__animated animate__zoomIn animate__delay-4s"
+          class="h-[300px] overflow-auto pb-[150px] animate__animated animate__zoomIn animate__delay-4s"
         >
           <div
-            class="bg-white rounded-lg px-2 py-2 mb-2 shadow"
+            class="bg-primary rounded-lg px-2 py-2 mb-2 shadow"
             v-for="(item, index) in messages.pesan"
             :key="item"
           >
@@ -168,10 +152,10 @@ onMounted(() => {
                     v-else
                   />
                 </p>
-                <small class="text-gray-400">{{ item.created_at }}</small>
+                <small class="text-gray-200">{{ item.created_at }}</small>
               </div>
             </div>
-            <p class="border-t-2 pt-2 mt-2">
+            <p class="border-t-2  pt-2 mt-2">
               {{ item.pesan }}
             </p>
           </div>
