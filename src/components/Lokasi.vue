@@ -7,7 +7,7 @@ const props = defineProps({ data: Object });
       class="flex items-center justify-center bg-white/80 pb-10"
     >
       <div
-        class="text-center w-[100%] animate__animated animate__zoomIn animate__delay-1s"
+        class="text-center w-[100%]" data-aos="zoom-in" data-aos-delay="500"
       >
         <div
           v-html="props.data?.lokasi?.maps_embed"

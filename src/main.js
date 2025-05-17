@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import Countdown from "vue3-flip-countdown";
 import "animate.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Vuetify imports
 import "vuetify/styles";
@@ -47,6 +49,10 @@ const vuetify = createVuetify({
 
 // Styles
 import "./assets/main.css";
+
+AOS.init({
+  duration: 1000,
+});
 
 const app = createApp(App);
 app.use(vuetify);

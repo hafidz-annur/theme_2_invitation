@@ -23,19 +23,14 @@ const copyText = (text) => {
       class="w-full md:h-full h-[80dvh] object-cover"
     />
     <div class="absolute top-0 left-0 bg-white/70 h-full py-10 px-10">
-      <div
-        class="text-center mb-3 animate__animated animate__zoomIn animate__delay-1s"
-      >
+      <div class="text-center mb-3" data-aos="zoom-in" data-aos-delay="500">
         <h4 class="mb-1 text-2xl font-bold text-gray-700">Terima Kasih</h4>
         <p class="text-gray-800">
           Terima kasih telah menambah semangat kegembiraan pernikahaan kam
           dengan kehadiran dan hadiah indah Anda.
         </p>
       </div>
-      <v-card
-        color="white"
-        class="animate__animated animate__zoomIn animate__delay-2s"
-      >
+      <v-card color="white" data-aos="zoom-in" data-aos-delay="1000">
         <v-tabs v-model="tab" bg-color="primary" align-tabs="center">
           <v-tab
             value="one"

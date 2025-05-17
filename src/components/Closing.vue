@@ -8,12 +8,12 @@ const props = defineProps({ data:Object, caption: Object });
       class="absolute top-0 left-0 w-full h-full flex items-center bg-gradient-to-t from-orange-100/40 to-gray-800"
     >
       <div
-        class="text-center animate__animated animate__zoomIn animate__delay-1s mb-10 px-5"
+        class="text-center mb-10 px-5" data-aos="zoom-in" data-aos-delay="500"
       >
         <p class="text-[14px]" v-html="props.caption?.islam?.penutup[1]"></p>
       </div>
       <div
-        class="absolute bottom-[15vh] left-0 w-full animate__animated animate__fadeInUp animate__delay-2s"
+        class="absolute bottom-[15vh] left-0 w-full" data-aos="fade-up" data-aos-delay="1000"
       >
         <div class="flex justify-center mt-[20vh]">
           <img src="/public/logo.png" alt="Āmantrana" class="w-20" />

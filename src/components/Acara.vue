@@ -9,12 +9,12 @@ const props = defineProps({ data: Object });
     <div class="absolute top-0 left-0 w-full h-full bg-black/70 py-10">
       <div class="flex justify-center items-center px-5">
         <div class="text-center w-full">
-          <p class="mb-10">
+          <p class="mb-10" data-aos="zoom-in" data-aos-delay="500">
             Bergabunglah bersama Kami menyaksikan sekaligus merayakan
             terbentuknya ikatan suci ini. Kami ingin Anda menjadi bagian dari
             hari istimewa kami.
           </p>
-          <v-card rounded="lg" class="mb-10">
+          <v-card rounded="lg" class="mb-10" data-aos="fade-right" data-aos-delay="1000">
             <v-row class="items-center" no-gutters="">
               <v-col md="2" cols="3" class="bg-white flex justify-center text-center">
                 <v-icon
@@ -50,7 +50,7 @@ const props = defineProps({ data: Object });
             </v-row>
           </v-card>
 
-          <v-card rounded="lg">
+          <v-card rounded="lg" data-aos="fade-left" data-aos-delay="1500">
             <v-row class="items-center" no-gutters="">
               <v-col md="10" cols="9" class="bg-primary py-3 px-5 text-start">
                 <div class="flex items-center justify-end">

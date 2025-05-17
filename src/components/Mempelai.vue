@@ -7,7 +7,7 @@ const props = defineProps({ data: Object });
       class="flex items-center justify-center py-10 bg-gradient-to-b from-gray-800 to-gray-400"
     >
       <div class="text-center">
-        <div class="animate__animated animate__zoomIn animate__delay-1s">
+        <div class="" data-aos="zoom-in" data-aos-delay="500">
           <div class="flex justify-center mb-2">
             <v-img
               :src="props.data?.mempelai.pria.foto"
@@ -32,13 +32,9 @@ const props = defineProps({ data: Object });
           </p>
         </div>
 
-        <h2
-          class="text-xl mt-2 mb-2 animate__animated animate__zoomIn animate__delay-2s"
-        >
-          dengan
-        </h2>
+        <h2 class="text-xl mt-2 mb-2" data-aos="zoom-in" data-aos-delay="1000">dengan</h2>
 
-        <div class="animate__animated animate__zoomIn animate__delay-3s">
+        <div class="" data-aos="zoom-in" data-aos-delay="1500">
           <div class="flex justify-center mb-2">
             <v-img
               :src="props.data?.mempelai.wanita.foto"
