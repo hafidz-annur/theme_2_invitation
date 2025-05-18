@@ -93,7 +93,7 @@ const saveCalendar = () => {
               class="mt-3"
               rounded
             >
-              Save Calendar
+              Simpan Tanggal
             </v-btn>
           </div>
         </div>
