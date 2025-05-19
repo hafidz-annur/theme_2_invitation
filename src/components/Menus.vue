@@ -149,7 +149,7 @@ onMounted(() => {
         :class="item.title == selected ? 'bg-primary' : null"
       >
         <v-icon :icon="item.icon" size="20" />
-        <p class="text-[10px] text-white">
+        <p class="text-[10px] " :class="item.title == selected ? 'text-white' : 'text-black'">
           {{ item.title }}
         </p>
       </v-tab>
