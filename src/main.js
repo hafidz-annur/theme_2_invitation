@@ -23,11 +23,11 @@ export default createVuetify({
 const myCustomLightTheme = {
   dark: false,
   colors: {
-  primary: '#ff6b6b',      /* Coral Red */
-  secondary: '#f06543',    /* Deep Orange */
-  accent: '#ffb347',       /* Soft Orange */
-  background: '#fff3e0',   /* Light Cream */
-  text: '#4e342e',     
+    primary: "#2e7d32" /* Forest Green */,
+    secondary: "#66bb6a" /* Light Green */,
+    accent: "#a5d6a7" /* Mint Green */,
+    background: "#e8f5e9" /* Light Mint */,
+    text: "#1b5e20",
   },
 };
 

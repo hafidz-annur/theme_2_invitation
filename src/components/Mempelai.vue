@@ -4,7 +4,7 @@ const props = defineProps({ data: Object });
 <template>
   <v-container class="relative p-0 overflow-hidden">
     <div
-      class="flex items-center justify-center py-10 bg-gradient-to-b from-[#6e1f1f] to-gray-500"
+      class="flex items-center justify-center py-10 bg-gradient-to-b from-[#1c2f1d] to-gray-500"
     >
       <div class="text-center">
         <div class="" data-aos="zoom-in" data-aos-delay="500">
