@@ -23,15 +23,11 @@ export default createVuetify({
 const myCustomLightTheme = {
   dark: false,
   colors: {
-    primary: "#D79F6B", // Gold sebagai warna utama
-    secondary: "#B8860B", // Gold tua untuk aksen
-    background: "#FFFFFF", // Latar putih default
-    surface: "#F8F8F8", // Permukaan abu terang
-    text: "#000000", // Teks utama hitam
-    success: "#28a745", // Hijau (bisa diganti dengan gold-hijau jika diinginkan)
-    warning: "#ffc107", // Kuning terang
-    error: "#dc3545", // Merah terang
-    info: "#17a2b8", // Biru terang
+    primary: "#0077b6" /* Deep Blue */,
+    secondary: "#00b4d8" /* Light Blue */,
+    accent: "#90e0ef" /* Sky Blue */,
+    background: "#caf0f8" /* Pale Blue */,
+    text: "#03045e" /* Navy */,
   },
 };
 

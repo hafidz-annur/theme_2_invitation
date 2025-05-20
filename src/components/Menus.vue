@@ -138,7 +138,7 @@ onMounted(() => {
       height="50"
       stacked
       center-active
-      class="bg-white/80 rounded-t-xl"
+      class="bg-[#0077b6]/60 rounded-t-xl"
       @update:model-value="selectedMenu()"
     >
       <v-tab
@@ -146,10 +146,17 @@ onMounted(() => {
         v-for="item in menus"
         :value="item.title"
         class="p-0"
-        :class="item.title == selected ? 'bg-primary' : null"
+        :class="item.title == selected ? 'bg-secondary' : null"
       >
-        <v-icon :icon="item.icon" size="20" />
-        <p class="text-[10px] " :class="item.title == selected ? 'text-white' : 'text-black'">
+        <v-icon
+          :icon="item.icon"
+          size="20"
+          :class="item.title == selected ? 'text-white' : 'text-gray-300'"
+        />
+        <p
+          class="text-[10px]"
+          :class="item.title == selected ? 'text-white' : 'text-gray-300'"
+        >
           {{ item.title }}
         </p>
       </v-tab>
