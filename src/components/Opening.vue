@@ -38,7 +38,7 @@ const saveCalendar = () => {
   <v-container height="100dvh" class="relative overflow-hidden p-0">
   <img :src="props.data?.foto_opening" alt="Amantrana" class="h-full object-cover">
     <div
-      class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#a5d6a7]/10 to-[#1c2f1d]"
+      class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#424242]/10 to-[#212121]"
     >
       <div class="p-5">
         <div
