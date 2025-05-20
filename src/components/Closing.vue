@@ -5,7 +5,7 @@ const props = defineProps({ data: Object, caption: Object });
   <v-container height="100dvh" class="relative p-0">
     <v-img :src="props.data?.foto_opening" height="100dvh" cover></v-img>
     <div
-      class="absolute top-0 left-0 w-full h-full flex items-center bg-gradient-to-b from-[#8bd1df]/30 to-[#194a64]"
+      class="absolute top-0 left-0 w-full h-full flex items-center bg-gradient-to-b from-[#ffb347]/10 to-[#6e1f1f]"
     >
       <div
         class="text-center mb-10 px-5"
